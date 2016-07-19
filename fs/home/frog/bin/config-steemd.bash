@@ -11,9 +11,9 @@ if [ ! -f $CONFIGPATH ]; then
 	exit 1
 fi
 
-cd $STEEMD_WORKING_DIR
+cd $STEEMD_WORKING_DIR/witness_node_data_dir
 rm -f config.ini
-ln -s configs/config.$CONFIGNAME.ini config.ini
+ln -s ../configs/config.$CONFIGNAME.ini config.ini
 chown steemd:steemd config.ini
 
 exit 0
