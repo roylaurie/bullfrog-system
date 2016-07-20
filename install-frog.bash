@@ -49,7 +49,7 @@ sudo /home/frog/project/bullfrog-system/bin/config-steemd.bash synconly
 echo -e "${GRN}|=== Downloading snapshot of steemd blockchain database ...                   |${NC}"
 # TODO
 echo -e "${GRN}|=== Importing snapshot of steemd blockchain database ...                     |${NC}"
-# TODO
+# TODO import
 
 echo -e "${GRN}|=== Installation complete. Starting replay. Once complete:                   |${NC}"
 echo -e "${GRN}|       * CTL+C to kill steemd.                                               |${NC}"
