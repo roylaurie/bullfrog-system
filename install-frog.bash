@@ -40,7 +40,6 @@ sudo cp /home/frog/project/bullfrog-system/fs/etc/systemd/system/steemd.service 
 sudo chown root:root /etc/systemd/system/steemd.service
 sudo systemctl daemon-reload
 
-
 echo -e "${GRN}|=== Building STEEM project ...                                               |${NC}\n"
 sudo /home/frog/project/bullfrog-system/bin/recompile-steem.bash
 
