@@ -60,6 +60,7 @@ echo -e "${GRN}|                                                                
 echo -e "${GRN}+-----------------------------------------------------------------------------+${NC}"
 echo -e "${GRN}+---------------------------installation-complete-----------------------------+${NC}"
 echo -e "${GRN}+-----------------------------------------------------------------------------+${NC}"
+echo
 
 echo -e "${GRN}|=== Replaying imported database in steemd  ...                              |${NC}"
 sudo /home/frog/project/bullfrog/bin/replay.bash
