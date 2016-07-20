@@ -2,8 +2,11 @@
 set -oue pipefail
 IFS=$'\n\t'
 
+FROG_BIN_DIR='/home/frog/project/bullfrog-system/fs/home/frog/bin'
+
 GRN='\033[1;32m'
 NC='\033[0m' 
+
 echo -e "${GRN}+----------------------------------bullfrog-----------------------------------+${NC}"
 echo -e "${GRN}+-----------------------------------system------------------------------------+${NC}"
 echo -e "${GRN}|                                                                             |${NC}"
@@ -41,10 +44,10 @@ sudo chown root:root /etc/systemd/system/steemd.service
 sudo systemctl daemon-reload
 
 echo -e "${GRN}|=== Building STEEM project ...                                               |${NC}"
-sudo /home/frog/project/bullfrog-system/bin/recompile-steem.bash
+sudo ${FROG_BIN_DIR}/recompile-steem.bash
 
 echo -e "${GRN}|=== Configuring steemd for 'synconly' ...                                    |${NC}"
-sudo /home/frog/project/bullfrog-system/bin/config-steemd.bash synconly
+sudo ${FROG_BIN_DIR}/config-steemd.bash synconly
 
 echo -e "${GRN}|=== Downloading snapshot of steemd blockchain database ...                   |${NC}"
 # TODO
