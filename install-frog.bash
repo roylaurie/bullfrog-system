@@ -2,7 +2,7 @@
 set -oue pipefail
 IFS=$'\n\t'
 
-FROG_BIN_DIR='/home/frog/project/bullfrog-system/fs/home/frog/bin'
+FROG_BIN_DIR='/home/frog/project/bullfrog-system/bin'
 
 GRN='\033[1;32m'
 NC='\033[0m' 
@@ -25,11 +25,15 @@ sudo adduser --disabled-password --gecos "" frog
 
 echo -e "${GRN}|=== Logging in as user 'frog' ...                                            |${NC}"
 sudo su frog
+mkdir -p /home/frog/project
+mkdir -p /home/wallet/steem
+
 
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
-mkdir -p /home/frog/project
 cd /home/frog/project
 git clone https://github.com/roylaurie/bullfrog-system.git
+cd /home/frog
+ln -s ./project/bullfrog-system/bin .
 
 echo -e "${GRN}|=== Restricting file permissions in home dir ...                             |${NC}"
 chown -R frog:frog /home/frog
@@ -44,10 +48,10 @@ sudo chown root:root /etc/systemd/system/steemd.service
 sudo systemctl daemon-reload
 
 echo -e "${GRN}|=== Building STEEM project ...                                               |${NC}"
-sudo ${FROG_BIN_DIR}/recompile-steem.bash
+sudo /home/frog/bin/recompile-steem.bash
 
 echo -e "${GRN}|=== Configuring steemd for 'synconly' ...                                    |${NC}"
-sudo ${FROG_BIN_DIR}/config-steemd.bash synconly
+sudo /home/frog/bin/config-steemd.bash synconly
 
 echo -e "${GRN}|=== Downloading snapshot of steemd blockchain database ...                   |${NC}"
 # TODO
