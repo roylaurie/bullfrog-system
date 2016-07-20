@@ -18,7 +18,7 @@ sudo apt-get install gcc g++ libboost-all-dev cmake autoconf automake qt5-defaul
  libreadline6-dev libgmp-dev zip unzip nodejs python3 vim sysstat
 
 echo -e "${GRN}|=== Creating user 'frog' ...                                                 |${NC}"
-sudo adduser frog
+sudo adduser --disabled-password --gecos "" frog
 
 echo -e "${GRN}|=== Logging in as user 'frog' ...                                            |${NC}"
 sudo su frog
