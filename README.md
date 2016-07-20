@@ -1,6 +1,5 @@
-STEEM Daemon Automation Tools
-------------------------------
+STEEM System Configuration Tools
+---------------------------------
 
-> wget https://raw.githubusercontent.com/roylaurie/bullfrog-system/master/install-frog.bash
-
-> bash ./install-frog.bash
+To install:
+> curl https://raw.githubusercontent.com/roylaurie/bullfrog-system/master/install-frog.bash | bash
