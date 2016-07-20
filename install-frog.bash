@@ -1,5 +1,5 @@
 #!/bin/bash
-set -xoue pipefail
+set -oue pipefail
 IFS=$'\n\t'
 
 GRN='\033[1;32m'
