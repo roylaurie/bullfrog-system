@@ -6,7 +6,10 @@ mkdir =p /home/frog/project/steemit
 cd /home/frog/project/steemit
 
 rm -rf last.steem
-mv steem last.steem
+
+if [ -f steem ]; then 
+	mv steem last.steem
+fi
 
 git clone https://github.com/steemit/steem.git
 
