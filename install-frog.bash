@@ -29,7 +29,6 @@ sudo su frog
 mkdir -p /home/frog/project
 mkdir -p /home/frog/wallet/steem
 
-
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
 cd /home/frog/project
 git clone https://github.com/roylaurie/bullfrog-system.git
@@ -39,8 +38,7 @@ ln -s ./project/bullfrog-system/bin .
 echo -e "${GRN}|=== Logging out as 'frog' ...                                                |${NC}"
 exit # frog
 
-
-echo -e "${GRN}|=== Creating and configuer user 'steemd' ...                                 |${NC}"
+echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
 sudo mkdir -p /usr/local/var/lib/steemd /usr/local/var/lib/steemd/backups
 sudo cp -R /home/frog/project/bullfrog-system/configs /usr/local/var/lib/steemd
 sudo adduser --disabled-login --disabled-password --no-create-dir --home=/usr/local/var/lib/steemd\
@@ -55,10 +53,8 @@ sudo chmod 644 /etc/systemd/system/steemd.service
 sudo systemctl daemon-reload
 
 echo -e "${GRN}|=== Restricting file permissions in 'frog' home dir ...                      |${NC}"
-sudo su frog
-chown -R frog:frog /home/frog
-chmod -R o-rwx /home/frog
-exit # frog
+sudo chown -R frog:frog /home/frog
+sudo chmod -R o-rwx /home/frog
 
 echo -e "${GRN}|=== Building STEEM project ...                                               |${NC}"
 sudo /home/frog/bin/recompile-steem.bash
