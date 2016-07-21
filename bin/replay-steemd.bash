@@ -5,8 +5,7 @@ IFS=$'\n\t'
 sudo service steemd stop
 sudo /home/frog/bin/config-steemd.bash synconly
 
-sudo su steemd
-cd
-steemd --replay
+cd /var/local/steemd
+sudo su -u steemd steemd --replay
 
 exit 0
