@@ -67,9 +67,9 @@ sudo /home/frog/bin/recompile-steem.bash
 echo -e "${GRN}|=== Configuring steemd for 'synconly' ...                                    |${NC}"
 sudo /home/frog/bin/config-steemd.bash synconly
 
-echo -e "${GRN}|=== Downloading snapshot of steemd blockchain database ...                   |${NC}"
+#echo -e "${GRN}|=== Downloading snapshot of steemd blockchain database ...                   |${NC}"
 # TODO
-echo -e "${GRN}|=== Importing snapshot of steemd blockchain database ...                     |${NC}"
+#echo -e "${GRN}|=== Importing snapshot of steemd blockchain database ...                     |${NC}"
 # TODO import
 
 echo -e "${GRN}|=== Installation complete. Starting replay. Once complete:                   |${NC}"
