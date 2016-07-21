@@ -35,17 +35,29 @@ git clone https://github.com/roylaurie/bullfrog-system.git
 cd /home/frog
 ln -s ./project/bullfrog-system/bin .
 
-echo -e "${GRN}|=== Restricting file permissions in home dir ...                             |${NC}"
-chown -R frog:frog /home/frog
-chmod -R o-rwx /home/frog
-
 echo -e "${GRN}|=== Logging out as 'frog' ...                                                |${NC}"
 exit # frog
 
-echo -e "${GRN}|=== Configuring system service 'STEEM DAEMON' ...                            |${NC}"
-sudo cp /home/frog/project/bullfrog-system/fs/etc/systemd/system/steemd.service /etc/systemd/system
+
+echo -e "${GRN}|=== Creating and configuer user 'steemd' ...                                 |${NC}"
+sudo mkdir -p /usr/local/var/lib/steemd /usr/local/var/lib/steemd/backups
+cp -R /home/frog/project/bullfrog-system/configs /usr/local/var/lib/steemd
+sudo adduser --disabled-login --disabled-password --no-create-dir --home=/usr/local/var/lib/steemd\
+ steemd
+sudo chown -R steemd:steemd /usr/local/var/lib/steemd
+sudo chmod -R o-rwx /usr/local/var/lib/steemd
+
+echo -e "${GRN}|=== Configuring system service 'STEEM Daemon' ...                            |${NC}"
+sudo cp /home/frog/project/bullfrog-system/systemd/steemd.service /etc/systemd/system
 sudo chown root:root /etc/systemd/system/steemd.service
+sudo chmod 644 /etc/systemd/system/steemd.service
 sudo systemctl daemon-reload
+
+echo -e "${GRN}|=== Restricting file permissions in 'frog' home dir ...                      |${NC}"
+sudo su frog
+chown -R frog:frog /home/frog
+chmod -R o-rwx /home/frog
+exit # frog
 
 echo -e "${GRN}|=== Building STEEM project ...                                               |${NC}"
 sudo /home/frog/bin/recompile-steem.bash
