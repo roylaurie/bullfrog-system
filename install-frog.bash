@@ -28,7 +28,7 @@ sudo mkdir -p /home/frog/wallet/steem
 
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
 cd /home/frog/project
-git clone https://github.com/roylaurie/bullfrog-system.git
+sudo -u frog git clone https://github.com/roylaurie/bullfrog-system.git
 cd /home/frog
 ln -s ./project/bullfrog-system/bin .
 
