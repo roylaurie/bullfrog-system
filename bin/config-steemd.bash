@@ -1,6 +1,6 @@
 #!/bin/bash
 
-STEEMD_WORKING_DIR='/usr/local/var/lib/steemd'
+STEEMD_WORKING_DIR='/var/local/steemd'
 
 CONFIGNAME="$1"
 CONFIGPATH="$(realpath $STEEMD_WORKING_DIR/configs/config.$CONFIGNAME.ini)"

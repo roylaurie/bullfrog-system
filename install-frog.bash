@@ -39,13 +39,12 @@ echo -e "${GRN}|=== Logging out as 'frog' ...                                   
 exit # frog
 
 echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
-sudo mkdir -p /usr/local/var/lib/steemd
-sudo adduser --disabled-login --disabled-password --no-create-home --home=/usr/local/var/lib/steemd\
+sudo adduser --disabled-login --disabled-password --home=/var/local/steemd\
  steemd
-sudo cp -R /home/frog/project/bullfrog-system/configs /usr/local/var/lib/steemd
-sudo mkdir -p /usr/local/var/lib/steemd/backups
-sudo chown -R steemd:steemd /usr/local/var/lib/steemd
-sudo chmod -R o-rwx /usr/local/var/lib/steemd
+sudo cp -R /home/frog/project/bullfrog-system/configs /var/local/steemd
+sudo mkdir -p /var/local/steemd/backups
+sudo chown -R steemd:steemd /var/local/steemd
+sudo chmod -R o-rwx /var/local/steemd
 
 echo -e "${GRN}|=== Configuring system service 'STEEM Daemon' ...                            |${NC}"
 sudo cp /home/frog/project/bullfrog-system/systemd/steemd.service /etc/systemd/system

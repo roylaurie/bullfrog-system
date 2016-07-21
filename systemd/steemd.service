@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=steemd
-WorkingDirectory=/usr/local/var/lib/steemd
+WorkingDirectory=/var/local/steemd
 ExecStart=/usr/local/bin/steemd --rpc-endpoint
 Restart=always
 
