@@ -41,7 +41,7 @@ exit # frog
 
 echo -e "${GRN}|=== Creating and configuer user 'steemd' ...                                 |${NC}"
 sudo mkdir -p /usr/local/var/lib/steemd /usr/local/var/lib/steemd/backups
-cp -R /home/frog/project/bullfrog-system/configs /usr/local/var/lib/steemd
+sudo cp -R /home/frog/project/bullfrog-system/configs /usr/local/var/lib/steemd
 sudo adduser --disabled-login --disabled-password --no-create-dir --home=/usr/local/var/lib/steemd\
  steemd
 sudo chown -R steemd:steemd /usr/local/var/lib/steemd
