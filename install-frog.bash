@@ -23,20 +23,14 @@ sudo apt-get install gcc g++ libboost-all-dev cmake autoconf automake qt5-defaul
 
 echo -e "${GRN}|=== Creating user 'frog' ...                                                 |${NC}"
 sudo adduser --disabled-password --gecos "" frog
-
-echo -e "${GRN}|=== Logging in as user 'frog' ...                                            |${NC}"
-sudo su frog
-mkdir -p /home/frog/project
-mkdir -p /home/frog/wallet/steem
+sudo mkdir -p /home/frog/project
+sudo mkdir -p /home/frog/wallet/steem
 
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
 cd /home/frog/project
 git clone https://github.com/roylaurie/bullfrog-system.git
 cd /home/frog
 ln -s ./project/bullfrog-system/bin .
-
-echo -e "${GRN}|=== Logging out as 'frog' ...                                                |${NC}"
-exit # frog
 
 echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
 sudo adduser --disabled-login --disabled-password --home=/var/local/steemd --gecos "" steemd
