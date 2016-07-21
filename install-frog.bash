@@ -55,6 +55,7 @@ sudo chown root:root /etc/systemd/system/steemwalletd.service
 sudo chmod 644 /etc/systemd/system/steemd.service
 sudo chmod 644 /etc/systemd/system/steemwalletd.service
 sudo systemctl daemon-reload
+sudo systemctl enable steemd.service
 
 echo -e "${GRN}|=== Restricting file permissions in 'frog' home dir ...                      |${NC}"
 sudo chown -R frog:frog /home/frog
