@@ -29,10 +29,9 @@ sudo mkdir -p /home/frog/wallet/steem
 sudo chown -R frog:frog /home/frog
 
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
-cd /home/frog/project
-sudo -u frog git clone https://github.com/roylaurie/bullfrog-system.git
-cd /home/frog
-sudo -u frog ln -s ./project/bullfrog-system/bin
+sudo -u frog git clone https://github.com/roylaurie/bullfrog-system.git /home/frog/project/bullfrog-system
+sudo -u frog ln -s /home/frog/project/bullfrog-system/bin
+###Where's this creating a link to?
 
 echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
 sudo adduser --disabled-login --disabled-password --home=/var/local/steemd --gecos "" steemd
