@@ -34,6 +34,7 @@ sudo -u frog ln -s /home/frog/project/bullfrog-system/bin
 ###Where's this creating a link to?
 
 echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
+sudo mkdir /var/local/steemd
 sudo adduser --disabled-login --disabled-password --home=/var/local/steemd --gecos "" steemd || echo "already made user"
 sudo cp -R /home/frog/project/bullfrog-system/configs /var/local/steemd 
 sudo mkdir -p /var/local/steemd/backups /var/local/steemd/witness_node_data_dir  || echo "folders already there"
