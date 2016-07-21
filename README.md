@@ -20,6 +20,8 @@ The installation script configures the system as such:
 * steemd and cli_wallet -d will be installed as system services, out of /var/local/steemd and /var/local/steemwalletd
 * Users 'steemd' and 'steemwalletd' will be created to run steemd and cli_wallet -d respectively.
 * Management tools will be installed in /home/frog/bin
+* steemd will automatically start on boot.
+* steemd will immediately begin running --replay and sync after install.
 
 Running the steemd service
 ----------------------------
