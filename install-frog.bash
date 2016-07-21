@@ -22,11 +22,11 @@ sudo apt-get install gcc g++ libboost-all-dev cmake autoconf automake qt5-defaul
  libreadline6-dev libgmp-dev zip unzip nodejs python3 vim sysstat libssl-dev
 
 echo -e "${GRN}|=== Creating user 'frog' ...                                                 |${NC}"
-sudo adduser --disabled-password --disabled-login --gecos "" frog
-sudo usermod -aG sudo frog
-sudo mkdir -p /home/frog/project
-sudo mkdir -p /home/frog/wallet/steem
-sudo chown -R frog:frog /home/frog
+sudo adduser --disabled-password --disabled-login --gecos "" frog || echo "already made user"
+sudo usermod -aG sudo frog  || echo "already added user to group"
+sudo mkdir -p /home/frog/project  || echo "already added project folder"
+sudo mkdir -p /home/frog/wallet/steem  || echo "already made wallet folder"
+sudo chown -R frog:frog /home/frog  
 
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
 cd /home/frog/project
