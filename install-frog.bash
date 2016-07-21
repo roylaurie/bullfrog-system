@@ -39,8 +39,7 @@ echo -e "${GRN}|=== Logging out as 'frog' ...                                   
 exit # frog
 
 echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
-sudo adduser --disabled-login --disabled-password --home=/var/local/steemd\
- steemd
+sudo adduser --disabled-login --disabled-password --home=/var/local/steemd --gecos "" steemd
 sudo cp -R /home/frog/project/bullfrog-system/configs /var/local/steemd
 sudo mkdir -p /var/local/steemd/backups
 sudo chown -R steemd:steemd /var/local/steemd
