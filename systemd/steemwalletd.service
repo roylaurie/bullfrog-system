@@ -3,8 +3,8 @@ Description=STEEM Wallet daemon
 After=network.target
 
 [Service]
-User=steemwd
-WorkingDirectory=/var/local/steemwallet
+User=steemwalletd
+WorkingDirectory=/var/local/steemwalletd
 ExecStart=/usr/local/bin/cli_wallet --rpc-endpoint -d
 Restart=always
 

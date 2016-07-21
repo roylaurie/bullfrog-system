@@ -42,24 +42,18 @@ sudo mkdir -p /var/local/steemd/backups /var/local/steemd/witness_node_data_dir
 sudo chown -R steemd:steemd /var/local/steemd
 sudo chmod -R o-rwx /var/local/steemd
 
-echo -e "${GRN}|=== Creating and configuring user 'steemwd' ...                              |${NC}"
-sudo adduser --disabled-login --disabled-password --home=/var/local/steemwallet --gecos "" steemwd
-sudo mkdir -p /var/local/steemwallet/backups 
-sudo chown -R steemwd:steemwd /var/local/steemwallet
-sudo chmod -R o-rwx /var/local/steemwallet
+echo -e "${GRN}|=== Creating and configuring user 'steemwalletd' ...                         |${NC}"
+sudo adduser --disabled-login --disabled-password --home=/var/local/steemwalletd --gecos "" steemwalletd
+sudo mkdir -p /var/local/steemwalletd/backups 
+sudo chown -R steemwalletd:steemwalletd /var/local/steemwalletd
+sudo chmod -R o-rwx /var/local/steemwalletd
 
-echo -e "${GRN}|=== Configuring system services ...                                          |${NC}"
+echo -e "${GRN}|=== Configuring system services 'steemd' and 'steemwalletd' ...              |${NC}"
 sudo cp /home/frog/project/bullfrog-system/systemd/* /etc/systemd/system
 sudo chown root:root /etc/systemd/system/steemd.service
-sudo chown root:root /etc/systemd/system/steemwallet.service
+sudo chown root:root /etc/systemd/system/steemwalletd.service
 sudo chmod 644 /etc/systemd/system/steemd.service
-sudo chmod 644 /etc/systemd/system/steemwallet.service
-sudo systemctl daemon-reload
-
-echo -e "${GRN}|=== Configuring system service 'STEEM Wallet Daemon' ...                     |${NC}"
-sudo cp /home/frog/project/bullfrog-system/systemd/steemd.service /etc/systemd/system
-sudo chown root:root /etc/systemd/system/steemd.service
-sudo chmod 644 /etc/systemd/system/steemd.service
+sudo chmod 644 /etc/systemd/system/steemwalletd.service
 sudo systemctl daemon-reload
 
 echo -e "${GRN}|=== Restricting file permissions in 'frog' home dir ...                      |${NC}"
