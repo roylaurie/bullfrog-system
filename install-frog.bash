@@ -59,9 +59,9 @@ echo -e "${GRN}|=== Importing snapshot of steemd blockchain database ...        
 # TODO import
 
 echo -e "${GRN}|=== Installation complete. Starting replay. Once complete:                   |${NC}"
-echo -e "${GRN}|       * CTL+C to kill steemd.                                               |${NC}"
+echo -e "${GRN}|       * CTL-C to kill steemd.                                               |${NC}"
 echo -e "${GRN}|       * Configure files in /usr/local/var/lib/steemd/configs.               |${NC}"
-echo -e "${GRN}|       * sudo /home/bullfrog/project/bullfrog-system/bin/config-steemd.bash. |${NC}"
+echo -e "${GRN}|       * sudo /home/frog/bin/config-steemd.bash.                             |${NC}"
 echo -e "${GRN}|       * sudo service steemd start                                           |${NC}"
 echo -e "${GRN}|                                                                             |${NC}"
 echo -e "${GRN}+-----------------------------------------------------------------------------+${NC}"
