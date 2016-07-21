@@ -5,7 +5,7 @@ The ***bullfrog-system*** project creates a clean, complete, and standardized in
 
 Installation
 ------------
-The target system must be a freshly installed Ubuntu 16.04 system. Only OEM 16.04 systems are supported.
+The target system must be a freshly installed Ubuntu 16.04 system. Only "OEM" 16.04 systems are supported.
 
 Installation is as simple as one command:
 > curl https://raw.githubusercontent.com/roylaurie/bullfrog-system/master/install-frog.bash | bash
