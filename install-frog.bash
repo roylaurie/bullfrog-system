@@ -26,7 +26,7 @@ sudo adduser --disabled-password --gecos "" frog
 echo -e "${GRN}|=== Logging in as user 'frog' ...                                            |${NC}"
 sudo su frog
 mkdir -p /home/frog/project
-mkdir -p /home/wallet/steem
+mkdir -p /home/frog/wallet/steem
 
 
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
