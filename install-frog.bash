@@ -25,6 +25,7 @@ echo -e "${GRN}|=== Creating user 'frog' ...                                    
 sudo adduser --disabled-password --gecos "" frog
 sudo mkdir -p /home/frog/project
 sudo mkdir -p /home/frog/wallet/steem
+sudo chown -R frog:frog /home/frog
 
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
 cd /home/frog/project
