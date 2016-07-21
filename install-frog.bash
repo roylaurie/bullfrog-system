@@ -67,10 +67,15 @@ sudo /home/frog/bin/recompile-steem.bash
 echo -e "${GRN}|=== Configuring steemd for 'synconly' ...                                    |${NC}"
 sudo /home/frog/bin/config-steemd.bash synconly
 
-#echo -e "${GRN}|=== Downloading snapshot of steemd blockchain database ...                   |${NC}"
-# TODO
-#echo -e "${GRN}|=== Importing snapshot of steemd blockchain database ...                     |${NC}"
-# TODO import
+echo -e "${GRN}|=== Downloading snapshot of steemd blockchain database ...                   |${NC}"
+sudo -u steemd wget http://www.steemitup.eu/witness_node_data_dir.tar.gz -P /var/local/steemd/backups
+
+echo -e "${GRN}|=== Importing snapshot of steemd blockchain database ...                     |${NC}"
+sudo -u steemd tar xzf /var/local/steemd/backups/witness_node_data_dir.tar.gz -C /var/local/steemd/backups
+sudo mv /var/local/backups/witness_node_data_dir/blockchain /var/local/backups/witness_node_data_dir
+sudo rm -rf /var/local/steemd/backups/witness_node_data_dir 
+sudo chown -R steemd:steemd /var/local/steemd/witness_node_data_dir/blockchain
+sudo chmod -R -o-rwx /var/local/steemd/witness_node_data_dir/blockchain
 
 echo -e "${GRN}|=== Installation complete. Starting replay. Once complete:                   |${NC}"
 echo -e "${GRN}|       * CTL-C to kill steemd.                                               |${NC}"
