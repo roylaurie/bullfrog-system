@@ -18,8 +18,8 @@ sudo apt-get upgrade -y
  
 echo -e "${GRN}|=== Installing required system packages ...                                  |${NC}"
 sudo apt-get install gcc g++ libboost-all-dev cmake autoconf automake qt5-default\
- qttools5-dev-tools doxygen libncurses5-dev libncurses5 graphviz libreadline6\
- libreadline6-dev libgmp-dev zip unzip nodejs python3 vim sysstat libssl-dev
+ qttools5-dev-tools doxygen libncurses5-dev libncurses5 graphviz libreadline6 git\
+ libreadline6-dev libgmp-dev zip unzip nodejs python3 vim sysstat libssl-dev build-essential
 
 echo -e "${GRN}|=== Creating user 'frog' ...                                                 |${NC}"
 sudo adduser --disabled-password --disabled-login --gecos "" frog || echo "already made user"
@@ -29,20 +29,20 @@ sudo mkdir -p /home/frog/wallet/steem  || echo "already made wallet folder"
 sudo chown -R frog:frog /home/frog  
 
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
-sudo -u frog git clone https://github.com/roylaurie/bullfrog-system.git /home/frog/project/bullfrog-system
+sudo -u frog git clone https://github.com/roylaurie/bullfrog-system.git /home/frog/project/bullfrog-system || sudo rm -rf /home/frog/project/bullfrog-system && git clone https://github.com/roylaurie/bullfrog-system.git /home/frog/project/bullfrog-system
 sudo -u frog ln -s /home/frog/project/bullfrog-system/bin
 ###Where's this creating a link to?
 
 echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
-sudo adduser --disabled-login --disabled-password --home=/var/local/steemd --gecos "" steemd
-sudo cp -R /home/frog/project/bullfrog-system/configs /var/local/steemd
-sudo mkdir -p /var/local/steemd/backups /var/local/steemd/witness_node_data_dir
-sudo chown -R steemd:steemd /var/local/steemd
+sudo adduser --disabled-login --disabled-password --home=/var/local/steemd --gecos "" steemd || echo "already made user"
+sudo cp -R /home/frog/project/bullfrog-system/configs /var/local/steemd 
+sudo mkdir -p /var/local/steemd/backups /var/local/steemd/witness_node_data_dir  || echo "folders already there"
+sudo chown -R steemd:steemd /var/local/steemd 
 sudo chmod -R o-rwx /var/local/steemd
 
 echo -e "${GRN}|=== Creating and configuring user 'steemwd' ...                              |${NC}"
-sudo adduser --disabled-login --disabled-password --home=/var/local/steemwallet --gecos "" steemwd
-sudo mkdir -p /var/local/steemwallet/backups 
+sudo adduser --disabled-login --disabled-password --home=/var/local/steemwallet --gecos "" steemwd || echo "already made user"
+sudo mkdir -p /var/local/steemwallet/backups  || echo "already made folder"
 sudo chown -R steemwd:steemwd /var/local/steemwallet
 sudo chmod -R o-rwx /var/local/steemwallet
 
