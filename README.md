@@ -10,6 +10,8 @@ The target system must be a freshly installed Ubuntu 16.04 system. Only "OEM" 16
 Installation is as simple as one command:
 > curl https://raw.githubusercontent.com/roylaurie/bullfrog-system/master/install-frog.bash | bash
 
+![screenshot](https://www.steemimg.com/images/2016/07/21/install-screenshot6351e.png)
+
 What it does
 ------------
 
