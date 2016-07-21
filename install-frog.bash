@@ -22,7 +22,8 @@ sudo apt-get install gcc g++ libboost-all-dev cmake autoconf automake qt5-defaul
  libreadline6-dev libgmp-dev zip unzip nodejs python3 vim sysstat libssl-dev
 
 echo -e "${GRN}|=== Creating user 'frog' ...                                                 |${NC}"
-sudo adduser --disabled-password --gecos "" frog
+sudo adduser --disabled-password --disabled-login --gecos "" frog
+sudo usermod -aG sudo frog
 sudo mkdir -p /home/frog/project
 sudo mkdir -p /home/frog/wallet/steem
 sudo chown -R frog:frog /home/frog
@@ -73,6 +74,6 @@ echo -e "${GRN}+----------------------------------------------------------------
 echo
 
 echo -e "${GRN}|=== Replaying imported database in steemd  ...                              |${NC}"
-sudo /home/frog/project/bullfrog/bin/replay.bash
+sudo /home/frog/bin/replay-steemd.bash
 
 exit 0
