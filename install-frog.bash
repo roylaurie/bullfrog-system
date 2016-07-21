@@ -16,7 +16,7 @@ echo -e "${GRN}|=== Updating system packages ...                                
 sudo apt-get update
 sudo apt-get upgrade -y
  
-echo -e "${GRN}|=== Installing required system packages ...                                 |${NC}"
+echo -e "${GRN}|=== Installing required system packages ...                                  |${NC}"
 sudo apt-get install gcc g++ libboost-all-dev cmake autoconf automake qt5-default\
  qttools5-dev-tools doxygen libncurses5-dev libncurses5 graphviz libreadline6\
  libreadline6-dev libgmp-dev zip unzip nodejs python3 vim sysstat libssl-dev
@@ -41,7 +41,21 @@ sudo mkdir -p /var/local/steemd/backups /var/local/steemd/witness_node_data_dir
 sudo chown -R steemd:steemd /var/local/steemd
 sudo chmod -R o-rwx /var/local/steemd
 
-echo -e "${GRN}|=== Configuring system service 'STEEM Daemon' ...                            |${NC}"
+echo -e "${GRN}|=== Creating and configuring user 'steemwd' ...                              |${NC}"
+sudo adduser --disabled-login --disabled-password --home=/var/local/steemwallet --gecos "" steemwd
+sudo mkdir -p /var/local/steemwallet/backups 
+sudo chown -R steemwd:steemwd /var/local/steemwallet
+sudo chmod -R o-rwx /var/local/steemwallet
+
+echo -e "${GRN}|=== Configuring system services ...                                          |${NC}"
+sudo cp /home/frog/project/bullfrog-system/systemd/* /etc/systemd/system
+sudo chown root:root /etc/systemd/system/steemd.service
+sudo chown root:root /etc/systemd/system/steem.service
+sudo chmod 644 /etc/systemd/system/steemd.service
+sudo chmod 644 /etc/systemd/system/steemwallet.service
+sudo systemctl daemon-reload
+
+echo -e "${GRN}|=== Configuring system service 'STEEM Wallet Daemon' ...                     |${NC}"
 sudo cp /home/frog/project/bullfrog-system/systemd/steemd.service /etc/systemd/system
 sudo chown root:root /etc/systemd/system/steemd.service
 sudo chmod 644 /etc/systemd/system/steemd.service
@@ -74,7 +88,7 @@ echo -e "${GRN}+---------------------------installation-complete----------------
 echo -e "${GRN}+-----------------------------------------------------------------------------+${NC}"
 echo
 
-echo -e "${GRN}|=== Replaying imported database in steemd  ...                              |${NC}"
+echo -e "${GRN}|=== Replaying imported database in steemd  ...                               |${NC}"
 sudo /home/frog/bin/replay-steemd.bash
 
 exit 0

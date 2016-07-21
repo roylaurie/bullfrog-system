@@ -1,0 +1,12 @@
+[Unit]
+Description=STEEM Wallet daemon
+After=network.target
+
+[Service]
+User=steemwd
+WorkingDirectory=/var/local/steemwallet
+ExecStart=/usr/local/bin/cli_wallet --rpc-endpoint -d
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
