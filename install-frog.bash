@@ -50,7 +50,7 @@ sudo chmod -R o-rwx /var/local/steemwallet
 echo -e "${GRN}|=== Configuring system services ...                                          |${NC}"
 sudo cp /home/frog/project/bullfrog-system/systemd/* /etc/systemd/system
 sudo chown root:root /etc/systemd/system/steemd.service
-sudo chown root:root /etc/systemd/system/steem.service
+sudo chown root:root /etc/systemd/system/steemwallet.service
 sudo chmod 644 /etc/systemd/system/steemd.service
 sudo chmod 644 /etc/systemd/system/steemwallet.service
 sudo systemctl daemon-reload
