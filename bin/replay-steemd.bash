@@ -6,6 +6,6 @@ sudo service steemd stop
 sudo /home/frog/bin/config-steemd.bash synconly
 
 cd /var/local/steemd
-sudo su -u steemd steemd --replay
+sudo -u steemd steemd --replay
 
 exit 0
