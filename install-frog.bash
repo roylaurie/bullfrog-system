@@ -36,7 +36,7 @@ sudo -u frog ln -s ./project/bullfrog-system/bin
 echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
 sudo adduser --disabled-login --disabled-password --home=/var/local/steemd --gecos "" steemd
 sudo cp -R /home/frog/project/bullfrog-system/configs /var/local/steemd
-sudo mkdir -p /var/local/steemd/backups
+sudo mkdir -p /var/local/steemd/backups /var/local/steemd/witness_node_data_dir
 sudo chown -R steemd:steemd /var/local/steemd
 sudo chmod -R o-rwx /var/local/steemd
 
