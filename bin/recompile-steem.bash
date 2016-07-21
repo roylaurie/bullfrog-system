@@ -2,7 +2,7 @@
 
 sudo service steemd stop
 
-mkdir =p /home/frog/project/steemit
+mkdir -p /home/frog/project/steemit
 cd /home/frog/project/steemit
 
 rm -rf last.steem
