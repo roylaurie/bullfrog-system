@@ -64,9 +64,6 @@ sudo chmod -R o-rwx /home/frog
 echo -e "${GRN}|=== Building STEEM project ...                                               |${NC}"
 sudo /home/frog/bin/recompile-steem.bash
 
-echo -e "${GRN}|=== Configuring steemd for 'synconly' ...                                    |${NC}"
-sudo /home/frog/bin/config-steemd.bash synconly
-
 echo -e "${GRN}|=== Downloading snapshot of steemd blockchain database ...                   |${NC}"
 sudo -u steemd wget http://www.steemitup.eu/witness_node_data_dir.tar.gz -P /var/local/steemd/backups
 
