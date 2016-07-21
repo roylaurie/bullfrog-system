@@ -72,10 +72,10 @@ sudo -u steemd wget http://www.steemitup.eu/witness_node_data_dir.tar.gz -P /var
 
 echo -e "${GRN}|=== Importing snapshot of steemd blockchain database ...                     |${NC}"
 sudo -u steemd tar xzf /var/local/steemd/backups/witness_node_data_dir.tar.gz -C /var/local/steemd/backups
-sudo mv /var/local/steemd/backups/witness_node_data_dir/blockchain /var/local/steemd/backups/witness_node_data_dir
+sudo mv /var/local/steemd/backups/witness_node_data_dir/blockchain /var/local/steemd/witness_node_data_dir
 sudo rm -rf /var/local/steemd/backups/witness_node_data_dir 
 sudo chown -R steemd:steemd /var/local/steemd/witness_node_data_dir/blockchain
-sudo chmod -R -o-rwx /var/local/steemd/witness_node_data_dir/blockchain
+sudo chmod -R o-rwx /var/local/steemd/witness_node_data_dir/blockchain
 
 echo -e "${GRN}|=== Installation complete. Starting replay. Once complete:                   |${NC}"
 echo -e "${GRN}|       * CTL-C to kill steemd.                                               |${NC}"
