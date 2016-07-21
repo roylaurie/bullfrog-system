@@ -31,7 +31,7 @@ echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                       
 cd /home/frog/project
 sudo -u frog git clone https://github.com/roylaurie/bullfrog-system.git
 cd /home/frog
-ln -s ./project/bullfrog-system/bin .
+sudo -u frog ln -s ./project/bullfrog-system/bin
 
 echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
 sudo adduser --disabled-login --disabled-password --home=/var/local/steemd --gecos "" steemd
