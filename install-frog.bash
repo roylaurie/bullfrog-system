@@ -74,6 +74,12 @@ sudo rm -rf /var/local/steemd/backups/witness_node_data_dir
 sudo chown -R steemd:steemd /var/local/steemd/witness_node_data_dir/blockchain
 sudo chmod -R o-rwx /var/local/steemd/witness_node_data_dir/blockchain
 
+
+echo -e "${GRN}|=== Altering motd ...                                                        |${NC}"
+sudo mv /home/frog/project/bullfrog-system/motd/00-header /etc/update-motd.d
+sudo chown root:root /etc/update-motd.d/00-header
+sudo chmod 755 /etc/update-motd.d/00-header
+
 echo -e "${GRN}|=== Installation complete. Starting replay. Once complete:                   |${NC}"
 echo -e "${GRN}|       * CTL-C to kill steemd.                                               |${NC}"
 echo -e "${GRN}|       * sudo passwd frog                                                    |${NC}"
