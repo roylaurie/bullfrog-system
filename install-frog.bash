@@ -58,10 +58,6 @@ sudo chmod 644 /etc/systemd/system/steemwalletd.service
 sudo systemctl daemon-reload
 sudo systemctl enable steemd.service
 
-# Prep for compile
-sudo chown -R frog:frog /home/frog
-sudo chmod -R o-rwx /home/frog
-
 echo -e "${GRN}|=== Building STEEM project ...                                               |${NC}"
 sudo /home/frog/bin/frog/recompile-steem.bash
 
