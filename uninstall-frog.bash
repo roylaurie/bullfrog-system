@@ -1,6 +1,4 @@
 #!/bin/bash
-set -oue pipefail
-IFS=$'\n\t'
 
 echo -n "Type 'yes' to continue: "
 read YES
