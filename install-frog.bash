@@ -66,6 +66,7 @@ sudo -u frog mkdir -p /home/frog/project/xeroc
 cd /home/frog/project/xeroc
 sudo -u frog git clone https://github.com/xeroc/piston
 cd /home/frog/project/xeroc/piston
+# Needs HOME set properly:
 sudo -Hu frog bash -c 'python3 setup.py install --user'
 cd /home/frog/bin
 sudo -u frog ln -s ../.local/bin py
@@ -85,7 +86,7 @@ sudo chown -R steemd:steemd /var/local/steemd/witness_node_data_dir/blockchain
 sudo chmod -R o-rwx /var/local/steemd/witness_node_data_dir/blockchain
 
 echo -e "${GRN}|=== Altering motd ...                                                        |${NC}"
-sudo rm -f /etc/update-motd.d/*
+sudo chmod 644 /etc/update-motd.d/*
 sudo mv /home/frog/project/bullfrog-system/motd/00-bullfrog/etc/update-motd.d
 sudo chown root:root /etc/update-motd.d/00-bullfrog
 sudo chmod 755 /etc/update-motd.d/00-bullfrog
