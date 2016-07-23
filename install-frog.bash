@@ -32,8 +32,9 @@ sudo chown -R frog:frog /home/frog
 echo -e "${GRN}|=== Cloning 'bullfrog-system' project ...                                    |${NC}"
 cd /home/frog/project
 sudo -u frog git clone https://github.com/roylaurie/bullfrog-system.git
-cd /home/frog
-sudo -u frog ln -s ./project/bullfrog-system/bin
+sudo -u frog mkdir /home/frog/bin
+cd /home/frog/bin
+sudo -u frog ln -s ../project/bullfrog-system/bin frog
 
 echo -e "${GRN}|=== Creating and configuring user 'steemd' ...                               |${NC}"
 sudo adduser --disabled-login --disabled-password --home=/var/local/steemd --gecos "" steemd
@@ -57,12 +58,25 @@ sudo chmod 644 /etc/systemd/system/steemwalletd.service
 sudo systemctl daemon-reload
 sudo systemctl enable steemd.service
 
-echo -e "${GRN}|=== Restricting file permissions in 'frog' home dir ...                      |${NC}"
+# Prep for compile
 sudo chown -R frog:frog /home/frog
 sudo chmod -R o-rwx /home/frog
 
 echo -e "${GRN}|=== Building STEEM project ...                                               |${NC}"
-sudo /home/frog/bin/recompile-steem.bash
+sudo /home/frog/bin/frog/recompile-steem.bash
+
+echo -e "${GRN}|=== Installing and configuring piston.rocks ...                              |${NC}"
+sudo -u frog mkdir -p /home/frog/project/xeroc
+cd /home/frog/project/xeroc
+sudo -u frog git clone https://github.com/xeroc/piston
+cd /home/frog/project/xeroc/piston
+sudo -u frog python setup.py install --user
+cd /home/frog/bin
+sudo -u frog ln -s ../.local/bin piston
+
+# Finish
+sudo chown -R frog:frog /home/frog
+sudo chmod -R o-rwx /home/frog
 
 echo -e "${GRN}|=== Downloading snapshot of steemd blockchain database ...                   |${NC}"
 sudo -u steemd wget http://www.steemitup.eu/witness_node_data_dir.tar.gz -P /var/local/steemd/backups
@@ -74,17 +88,17 @@ sudo rm -rf /var/local/steemd/backups/witness_node_data_dir
 sudo chown -R steemd:steemd /var/local/steemd/witness_node_data_dir/blockchain
 sudo chmod -R o-rwx /var/local/steemd/witness_node_data_dir/blockchain
 
-
 echo -e "${GRN}|=== Altering motd ...                                                        |${NC}"
-sudo mv /home/frog/project/bullfrog-system/motd/00-header /etc/update-motd.d
-sudo chown root:root /etc/update-motd.d/00-header
-sudo chmod 755 /etc/update-motd.d/00-header
+sudo rm -f /etc/update-motd.d/*
+sudo mv /home/frog/project/bullfrog-system/motd/00-bullfrog/etc/update-motd.d
+sudo chown root:root /etc/update-motd.d/00-bullfrog
+sudo chmod 755 /etc/update-motd.d/00-bullfrog
 
 echo -e "${GRN}|=== Installation complete. Starting replay. Once complete:                   |${NC}"
 echo -e "${GRN}|       * CTL-C to kill steemd.                                               |${NC}"
 echo -e "${GRN}|       * sudo passwd frog                                                    |${NC}"
 echo -e "${GRN}|       * Configure files in /var/local/steemd/configs.                       |${NC}"
-echo -e "${GRN}|       * sudo /home/frog/bin/config-steemd.bash                              |${NC}"
+echo -e "${GRN}|       * sudo /home/frog/bin/frog/config-steemd.bash                         |${NC}"
 echo -e "${GRN}|       * sudo service steemd start                                           |${NC}"
 echo -e "${GRN}|                                                                             |${NC}"
 echo -e "${GRN}+-----------------------------------------------------------------------------+${NC}"
@@ -93,6 +107,6 @@ echo -e "${GRN}+----------------------------------------------------------------
 echo
 
 echo -e "${GRN}|=== Replaying imported database in steemd  ...                               |${NC}"
-sudo /home/frog/bin/replay-steemd.bash
+sudo /home/frog/bin/frog/replay-steemd.bash
 
 exit 0

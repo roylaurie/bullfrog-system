@@ -3,7 +3,7 @@ set -oue pipefail
 IFS=$'\n\t'
 
 sudo service steemd stop
-sudo /home/frog/bin/config-steemd.bash synconly
+sudo /home/frog/bin/frog/config-steemd.bash synconly
 
 cd /var/local/steemd
 sudo -u steemd steemd --replay

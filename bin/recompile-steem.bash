@@ -21,6 +21,6 @@ cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_CONTENT_PATCHING=OFF -DLOW_MEMORY_NODE
 make
 sudo make install
 
-sudo /home/frog/bin/config-steemd.bash synconly
+sudo /home/frog/bin/frog/config-steemd.bash synconly
 
 exit 0
