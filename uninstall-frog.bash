@@ -2,7 +2,7 @@
 
 echo -n "Type 'yes' to continue: "
 read YES
-if [ "${YES}" -ne "yes" ]; then
+if [ "${YES}" != "yes" ]; then
 	exit 1
 fi
 
