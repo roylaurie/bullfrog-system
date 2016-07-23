@@ -20,7 +20,7 @@ sudo apt-get upgrade -y
 echo -e "${GRN}|=== Installing required system packages ...                                  |${NC}"
 sudo apt-get -y install gcc g++ libboost-all-dev cmake autoconf automake qt5-default\
  qttools5-dev-tools doxygen libncurses5-dev libncurses5 graphviz libreadline6\
- libreadline6-dev libgmp-dev zip unzip nodejs python3 vim sysstat libssl-dev
+ libreadline6-dev libgmp-dev zip unzip nodejs python3 python3-pip vim sysstat libssl-dev
 
 echo -e "${GRN}|=== Creating user 'frog' ...                                                 |${NC}"
 sudo adduser --disabled-password --disabled-login --gecos "" frog
@@ -66,7 +66,7 @@ sudo -u frog mkdir -p /home/frog/project/xeroc
 cd /home/frog/project/xeroc
 sudo -u frog git clone https://github.com/xeroc/piston
 cd /home/frog/project/xeroc/piston
-sudo -u frog python setup.py install --user
+sudo -u frog python3 setup.py install --user
 cd /home/frog/bin
 sudo -u frog ln -s ../.local/bin piston
 
