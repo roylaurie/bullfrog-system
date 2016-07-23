@@ -87,7 +87,7 @@ sudo chmod -R o-rwx /var/local/steemd/witness_node_data_dir/blockchain
 
 echo -e "${GRN}|=== Altering motd ...                                                        |${NC}"
 sudo chmod 644 /etc/update-motd.d/*
-sudo mv /home/frog/project/bullfrog-system/motd/00-bullfrog/etc/update-motd.d
+sudo cp /home/frog/project/bullfrog-system/motd/00-bullfrog /etc/update-motd.d
 sudo chown root:root /etc/update-motd.d/00-bullfrog
 sudo chmod 755 /etc/update-motd.d/00-bullfrog
 
