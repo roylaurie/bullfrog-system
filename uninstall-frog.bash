@@ -6,16 +6,16 @@ if [ "${YES}" != "yes" ]; then
 	exit 1
 fi
 
-sudo deluser frog
-sudo deluser steemd
-sudo deluser steemwalletd
-
-sudo rm -rf /home/frog
-sudo rm -rf /var/local/steemd
-sudo rm -rf /var/local/steemwalletd
-
 sudo rm -f /etc/systemd/system/steem*
 sudo systemctl daemon-reload
+
+
+sudo deluser --remove-home --remove-all-files --force frog
+sudo deluser --remove-home --remove-all-files --force steemd
+sudo deluser --remove-home --remove-all-files --force steemwalletd
+sudo delgroup --force frog
+sudo delgroup --force steemd
+sudo delgroup --force steemdwalletd
 
 sudo rm -f /etc/update-motd/00-bullfrog
 sudo chmod 755 /etc/update-motd/*
