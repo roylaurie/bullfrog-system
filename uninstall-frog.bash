@@ -14,11 +14,11 @@ sudo rm -rf /home/frog
 sudo rm -rf /var/local/steemd
 sudo rm -rf /var/local/steemwalletd
 
-rm -f /etc/systemd/system/steem*
+sudo rm -f /etc/systemd/system/steem*
 sudo systemctl daemon-reload
 
-rm -f /etc/update-motd/00-bullfrog
-chmod 755 /etc/update-motd/*
+sudo rm -f /etc/update-motd/00-bullfrog
+sudo chmod 755 /etc/update-motd/*
 
 echo "done"
 exit 0
