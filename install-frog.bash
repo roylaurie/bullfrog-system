@@ -66,9 +66,9 @@ sudo -u frog mkdir -p /home/frog/project/xeroc
 cd /home/frog/project/xeroc
 sudo -u frog git clone https://github.com/xeroc/piston
 cd /home/frog/project/xeroc/piston
-sudo -u frog python3 setup.py install --user
+sudo -Hu frog bash -c 'python3 setup.py install --user'
 cd /home/frog/bin
-sudo -u frog ln -s ../.local/bin piston
+sudo -u frog ln -s ../.local/bin py
 
 # Finish
 sudo chown -R frog:frog /home/frog
