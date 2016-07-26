@@ -62,7 +62,7 @@ Switches between pre-existing config.ini files. Default names available: miner, 
 
 Switches into synconly mode and runs steemd --replay
 
-***bin/recompile-steemd.bash***
+***bin/recompile-steem.bash***
 
 Re-clones the steemit source-code, recompiles, and re-installs.
 
