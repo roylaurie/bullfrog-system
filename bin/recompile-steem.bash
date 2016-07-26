@@ -7,7 +7,7 @@ cd /home/frog/project/steemit
 
 rm -rf last.steem
 
-if [ -f steem ]; then 
+if [ -d steem ]; then 
 	mv steem last.steem
 fi
 
