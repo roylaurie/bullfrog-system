@@ -54,15 +54,15 @@ To follow the log:
 Management tools
 ------------------
 
-***bin/config-steemd.bash <config name>***
+***bin/frog/config-steemd.bash <config name>***
 
 Switches between pre-existing config.ini files. Default names available: miner, witness, and synconly.
 
-***bin/replay-steemd.bash***
+***bin/frog/replay-steemd.bash***
 
 Switches into synconly mode and runs steemd --replay
 
-***bin/recompile-steem.bash***
+***bin/frog/recompile-steem.bash***
 
 Re-clones the steemit source-code, recompiles, and re-installs.
 
@@ -73,10 +73,10 @@ First, SSH into your machine with your login user. Then ...
 > sudo su frog # maintenance account<br>
 > cd  # /home/frog<br>
 > sudo service steemd stop<br>
-> sudo ~/bin/recompile-steemd.bash  # will run replay automatically
+> sudo ~/bin/frog/recompile-steemd.bash  # will run replay automatically
 
 You'll see the steemd log as it replays the database then syncs. Once sync'd completely, CTL-C to kill steemd. Then ...
-> sudo ~/bin/config-steemd.bash miner<br>
+> sudo ~/bin/frog/config-steemd.bash miner<br>
 > sudo service steemd start
 
 License (MIT)
