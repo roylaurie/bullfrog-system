@@ -3,8 +3,6 @@ bullfrog-system: STEEM System Configuration Tools
 
 The ***bullfrog-system*** project creates a clean, complete, and standardized installation of the STEEM Daemon suite on Ubuntu 16. It provides all the tools necessary out-of-the-box to mine, witness, and bot against the STEEM blockchain.
 
-STEEM Tutorial: [project: bullfrog-system | Mine STEEM with ease](https://steemit.com/steemit/@kilrathi/project-bullfrog-system)
-
 Installation
 ------------
 The target system must be a freshly installed Ubuntu 16.04 system. Only "OEM" 16.04 systems are supported.
@@ -83,7 +81,7 @@ You'll see the steemd log as it replays the database then syncs. Once sync'd com
 
 License (MIT)
 -------------
-Copyright (c) 2016 Roy Laurie
+Copyright (c) 2016 redlorn
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
