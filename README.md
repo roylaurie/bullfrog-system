@@ -8,7 +8,7 @@ Installation
 The target system must be a freshly installed Ubuntu 16.04 system. Only "OEM" 16.04 systems are supported.
 
 Installation is as simple as one command:
-> curl https://raw.githubusercontent.com/roylaurie/bullfrog-system/master/install-frog.bash | bash
+> curl https://raw.githubusercontent.com/redlorn/bullfrog-system/master/install-frog.bash | bash
 
 ![screenshot](https://steemitimages.com/0x0/https://www.steemimg.com/images/2016/07/21/install-screenshot6351e.png)
 
